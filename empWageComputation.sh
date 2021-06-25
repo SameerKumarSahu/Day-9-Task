@@ -2,19 +2,19 @@
 
 echo "Welcome Message"
 
-isPresent=1
-isAbsent=0
-empWagePerHrs=20
-empDayHrs=8
-checkAvail=$((RANDOM%2))
+isPartTime=1;
+isFullTime=2;
+empRatePerHr=20;
+randomCheck=$((RANDOM%3));
 
-
-if [[ $isPresent -eq $checkAvail ]]
+if [ $isFullTime -eq $randomCheck ];
 then
-        echo "Employee is Present"
-        totalSalary=$(( $empWagePerHrs * $empDayHrs ))
-        echo "Total Salary of emp is :" $totalSalary
+        empHrs=8;
+elif [ $isPartTime -eq $randomCheck ];
+then
+        empHrs=8;
 else
-        echo "Employee is Absent"
-
+        empHrs=0;
 fi
+
+salary=$(($empHrs*empRatePerHr));
