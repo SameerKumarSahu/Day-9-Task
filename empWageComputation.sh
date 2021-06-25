@@ -4,18 +4,31 @@ echo "Welcome Message"
 
 isPartTime=1;
 isFullTime=2;
+totalSalary=0;
 empRatePerHr=20;
-empCheck=$((RANDOM%3));
+WorkingDays=20;
+maxHrsInMonth=20;
+totalEmpHrs=0;
+totalWorkingDays=0;
 
-case $empCheck in
-        $isFullTime)
-                empHrs=8
-                ;;
-        $isPartTime)
-                empHrs=8
-                ;;
-        *)
-                empHrs=0
-                ;;
-esac
-salary=$(($empHrs*$empRatePerHr));
+while [[ $totalEmpHrs -lt $maxHrsInMonth &&
+         $totalWorkingDays -lt $WorkingDays ]]
+do
+        ((totalWorkingDays++))
+        empCheck=$((RANDOM%3));
+        case $empCheck in
+                $isFullTime)
+                       empHrs=8
+                       ;;
+                $isPartTime)
+                       empHrs=4
+                       ;;
+                *)
+                       empHrs=0
+                       ;;
+         esac
+         totalEmpHrs=$(($totalEmpHrs+$empHrs));
+
+done
+
+totalMonthlySalary=$(($totalEmpHrs*$empRatePerHr));
