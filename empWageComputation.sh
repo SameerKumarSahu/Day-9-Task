@@ -7,7 +7,7 @@ isFullTime=2;
 totalSalary=0;
 empRatePerHr=20;
 WorkingDays=20;
-maxHrsInMonth=20;
+maxHrsInMonth=100;
 totalEmpHrs=0;
 totalWorkingDays=0;
 
@@ -21,7 +21,7 @@ do
                        empHrs=8
                        ;;
                 $isPartTime)
-                       empHrs=4
+                       empHrs=8
                        ;;
                 *)
                        empHrs=0
